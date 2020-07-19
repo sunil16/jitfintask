@@ -19,11 +19,12 @@ def repository(request):
             github_username = req_params['github_username']
             if github_username is not None and github_username != '':
                 res = get_git_uti_obj().get_repo(github_username)
+                fol_res = get_git_uti_obj().get_followers(github_username)
         except Exception as e:
             res["status"] = 500
             res['msg'] = 'Server error'
         finally:
-            return JsonResponse({'message':res.get('msg'),'data': res.get('data') }, status = res.get('status'))
+            return JsonResponse({'message':res.get('msg'),'repository': res.get('repository'),"followers": fol_res.get('followers')}, status = res.get('status'))
     else:
         return JsonResponse({'message':"Method Not Allowed"}, status = 405)
 
