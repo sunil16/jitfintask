@@ -43,7 +43,7 @@ Usage
 Get Repositories and Followers and top follower
 - Request
 ```
-curl -XGET http://localhost:8000/linkdin/get_repo?github_username=sunil16
+curl -XGET http://localhost:8000/git/get_repo?github_username=sunil16
 ```
 
 - Response
@@ -113,7 +113,7 @@ Pagination on Followers
 
 - Request
 ```shell
-curl -XPOST http://localhost:8000/linkdin/get_next_page -H "Content-Type: application/json" -d '{
+curl -XPOST http://localhost:8000/git/get_next_page -H "Content-Type: application/json" -d '{
  "follower_paging_url":"https://api.github.com/user/2894642/followers?page=2"
 }'
 ```
@@ -166,7 +166,7 @@ curl -XPOST http://localhost:8000/linkdin/get_next_page -H "Content-Type: applic
 Pagination on Repositories
 - Request
 ```shell
-curl -XPOST http://localhost:8000/linkdin/get_next_page  -H "Content-Type: application/json" -d '{
+curl -XPOST http://localhost:8000/git/get_next_page  -H "Content-Type: application/json" -d '{
   "repo_paging_url":"https://api.github.com/user/1060/repos?sort=created&direction=desc&page=2"
 }'
 ```
@@ -207,7 +207,7 @@ curl -XPOST http://localhost:8000/linkdin/get_next_page  -H "Content-Type: appli
 Create new Repositories
 - Request
 ```shell
-curl -XPOST http://localhost:8000/linkdin/create_repo -H "Content-Type: application/json" -d '{
+curl -XPOST http://localhost:8000/git/create_repo -H "Content-Type: application/json" -d '{
  "name": "NewRepoTest",
   "description": "This is your first repository",
   "private": true,
@@ -229,7 +229,7 @@ Update Repositories Discription
 
 - Request
 ```shell
-curl -XPOST http://localhost:8000/linkdin/update_repo -H "Content-Type: application/json" -d '{
+curl -XPOST http://localhost:8000/git/update_repo -H "Content-Type: application/json" -d '{
   "name": "NewRepoTest",
   "description": "This is new discription",
   "client_id":"sunil16",
