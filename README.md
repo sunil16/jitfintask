@@ -1,12 +1,12 @@
-Github Repositorie service Django REST API
+Github Repository service Django REST API
 ===============================
-Github Repositorie service is a django application where you can do following operation.
+Github Repository service is a django application where you can do following operation (public repository).
    - Lists all repositories of a user order by most recently created.
    - List all followers of a user sorted by name.
    - Fetch a follower who the highest number of followers.
       e.g: if A, B and C are followers of Sunil and A has 3 followers, B has 5, and C has 2 followers then this API should return details  of B since its as the highest number of followers.
-   - Creates a new repository.
-   - Update description of a repository.
+   - Creates a new repository (credential required).
+   - Update description of a repository (credential required).
 
 Django is a high-performance Python framework for building cloud APIs, smart proxies, and app backends. More information can be found [here](https://github.com/django/django).
 
