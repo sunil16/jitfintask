@@ -13,9 +13,9 @@ Django is a high-performance Python framework for building cloud APIs, smart pro
 Requirements
 ============
 
-Python version : 3
-Django minimum version : 1.8
-Github Api version : 3
+ - Python version : 3
+ - Django minimum version : 1.8
+ - Github Api version : 3
 
 This project uses [virtualenv](https://virtualenv.pypa.io/en/stable/) as isolated Python environment for installation and running. Therefore, [virtualenv](https://virtualenv.pypa.io/en/stable/) must be installed. And you may need a related dependency library for a Project. See [requirements.txt](https://github.com/sunil16/jitfintask/blob/master/requirements.txt) for details.
 
