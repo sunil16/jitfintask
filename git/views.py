@@ -1,13 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 import json
-
 from .utility import GitUtility
-
-# Create your views here.
-
-def home(request):
-    return JsonResponse({"key":"value"})
 
 def get_git_uti_obj():
     return GitUtility()
@@ -30,7 +24,6 @@ def repository(request):
             return JsonResponse({'message':res.get('msg'),'repository': res.get('repository'),"followers": fol_res.get('followers')}, status = res.get('status'))
     else:
         return JsonResponse({'message':"Method Not Allowed"}, status = 405)
-
 
 def next_page(request):
     if request.method == 'POST':
