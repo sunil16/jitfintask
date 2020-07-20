@@ -21,6 +21,10 @@ class GitUtility(RequestHandler):
         if github_username is not None:
             return super().get_follow_req(self.get_followers_url(github_username))
 
+    def get_next_followers(self, paging_url=None):
+        if paging_url is not None:
+            return super().get_follow_req(paging_url)
+
     def add_new_rep(self, repo_details=None):
         if repo_details is not None and repo_details.get('name') != '' and repo_details.get('client_id') != '' and repo_details.get('client_secret') != '':
             return super().create_repos(repo_details)
