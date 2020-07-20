@@ -43,7 +43,7 @@ Usage
 Get Repositories and Followers and top follower
 - Request
 ```
-http://localhost:8000/linkdin/get_repo?github_username=sunil16
+curl -XGET http://localhost:8000/linkdin/get_repo?github_username=sunil16
 ```
 
 - Response
