@@ -65,9 +65,7 @@ http://localhost:8000/linkdin/get_repo?github_username=sunil16
                     "avatar_url": "https://avatars3.githubusercontent.com/u/13816959?v=4",
                 },
                 "html_url": "https://github.com/sunil16/jitfintask",
-                ...
             }
-            ...
         ],
         "links": {
 	    "next": {
@@ -86,9 +84,7 @@ http://localhost:8000/linkdin/get_repo?github_username=sunil16
                 "id": 10634210,
                 "avatar_url": "https://avatars3.githubusercontent.com/u/10634210?v=4",
                 "url": "https://api.github.com/users/AdiChat"
-                ...
-            },
-           ...
+            }
         ],
         "links": {
 	    "next": {
@@ -132,11 +128,9 @@ curl -XPOST http://localhost:8000/linkdin/get_next_page -H "Content-Type: applic
                 "id": 2313562,
                 "node_id": "MDQ6VXNlcjIzMTM1NjI=",
                 "avatar_url": "https://avatars3.githubusercontent.com/u/2313562?v=4",
-                ...
             }
-            ...
         ]
-    }
+    },
      "links": {
             "prev": {
                 "url": "https://api.github.com/user/2894642/followers?page=1",
@@ -164,7 +158,6 @@ curl -XPOST http://localhost:8000/linkdin/get_next_page -H "Content-Type: applic
             "following": 96,
             "created_at": "2011-06-10T03:52:00Z",
             "updated_at": "2020-07-08T11:14:48Z"
-            ...
         }
     }
 }
@@ -186,11 +179,9 @@ curl -XPOST http://localhost:8000/linkdin/get_next_page  -H "Content-Type: appli
             {
                 "id": 2313562,
                 "node_id": "MDQ6VXNlcjIzMTM1NjI=",
-                ...
             }
-            ...
         ]
-    }
+    },
      "links": {
             "prev": {
                 "url": "https://api.github.com/user/2894642/repos?page=1",
