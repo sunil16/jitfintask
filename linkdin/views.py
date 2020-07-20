@@ -71,3 +71,21 @@ def create_repo(request):
             return JsonResponse({'message':res.get('msg')}, status = res.get('status'))
     else:
         return JsonResponse({'message':"Method Not Allowed"}, status = 405)
+
+def update_repo(request):
+    if request.method == 'POST':
+        try:
+            body_unicode = request.body.decode('utf-8')
+            repo_details = json.loads(body_unicode)
+            if repo_details is not None:
+                res = get_git_uti_obj().update_repo(repo_details)
+            else:
+                res['message'] = "params, paging_url missing"
+                res['status'] = 422
+        except Exception as e:
+            res["status"] = 500
+            res['msg'] = 'Server error'
+        finally:
+            return JsonResponse({'message':res.get('msg')}, status = res.get('status'))
+    else:
+        return JsonResponse({'message':"Method Not Allowed"}, status = 405)

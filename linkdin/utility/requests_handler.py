@@ -62,6 +62,32 @@ class RequestHandler(object):
         finally:
             return res
 
+    def update_repo_disc(self, repo_details=None):
+        res ={}
+        try:
+            client_inst = self.login_github(repo_details.get('client_id'),repo_details.get('client_secret'))
+            repo_name = repo_details.get('repo_name')
+            if repo_name is not None and repo_name != '':
+                repos = client_inst.get_user().get_repos(repo_name)
+                current_repo = [repo for repo in repos if repo.name == repo_name]
+                if len(current_repo) == 1:
+                    current_repo = current_repo[0]
+                    current_repo.edit(description=repo_details.get('description'))
+                    res["status"] = 200
+                    res['msg'] = 'Repository discription {} update successful'.format(repo_details.get('description'))
+                else:
+                    res["status"] = 422
+                    res['msg'] = 'Repository Not exists {}'.format(repo_details.get('repo_name'))
+            else:
+                res["status"] = 422
+                res['msg'] = 'params, {} missing'.format(repo_details.get('repo_name'))
+        except Exception as e:
+            res["status"] = 203
+            res['msg'] = 'Error, repository {} not able to update'.format(repo_details.get('name'))
+        finally:
+            return res
+
+
     def login_github(self, client_id=None, client_secret=None):
         client_inst = None
         try:

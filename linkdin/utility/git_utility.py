@@ -30,3 +30,9 @@ class GitUtility(RequestHandler):
             return super().create_repos(repo_details)
         else:
             return {'status':422,'msg':'params, missing repo_details'}
+
+    def update_repo(self, repo_details=None):
+        if repo_details is not None and repo_details.get('discription') != '' and repo_details.get('client_id') != '' and repo_details.get('client_secret') != '':
+            return super().update_repo_disc(repo_details)
+        else:
+            return {'status':422,'msg':'params, repo update params missing'}
