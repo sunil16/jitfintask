@@ -1,6 +1,6 @@
 from django.conf.urls import include, url
 from django.contrib import admin
-from .views import home, repository, next_page
+from .views import home, repository, next_page, create_repo
 
 urlpatterns = [
     # Examples:
@@ -9,5 +9,6 @@ urlpatterns = [
 
     url(r'^data/', home),
     url(r'^get_repo', repository),
-    url(r'^get_next_page', next_page)
+    url(r'^get_next_page', next_page),
+    url(r'^create_repos', create_repo)
 ]

@@ -20,3 +20,9 @@ class GitUtility(RequestHandler):
     def get_followers(self, github_username):
         if github_username is not None:
             return super().get_follow_req(self.get_followers_url(github_username))
+
+    def add_new_rep(self, repo_details=None):
+        if repo_details is not None and repo_details.get('name') != '' and repo_details.get('client_id') != '' and repo_details.get('client_secret') != '':
+            return super().create_repos(repo_details)
+        else:
+            return {'status':422,'msg':'params, missing repo_details'}

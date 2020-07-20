@@ -1,4 +1,5 @@
 import requests
+from github import Github
 
 class RequestHandler(object):
     """This class for handling all requests."""
@@ -47,3 +48,26 @@ class RequestHandler(object):
     def get_highest_number_follower(self,total_followers=None):
         if len(total_followers):
             [self.get_total_followers(follower['url']) for follower in total_followers]
+
+    def create_repos(self, repo_details=None):
+        res ={}
+        try:
+            client_inst = self.login_github(repo_details.get('client_id'),repo_details.get('client_secret'))
+            client_inst.get_user().create_repo(name=repo_details.get('name'), description=repo_details.get('description'), homepage= "https://github.com", private= False, has_issues= True, has_projects= True, has_wiki=True)
+            res["status"] = 201
+            res['msg'] = 'Repository {} successful created'.format(repo_details.get('name'))
+        except Exception as e:
+            res["status"] = 203
+            res['msg'] = 'Error, repository {} not able to create'.format(repo_details.get('name'))
+        finally:
+            return res
+
+    def login_github(self, client_id=None, client_secret=None):
+        client_inst = None
+        try:
+            # using username and password
+            client_inst = Github(client_id,client_secret)
+        except Exception as e:
+            raise
+        finally:
+            return client_inst
