@@ -7,7 +7,7 @@ Deprecated==1.2.10
 Django==1.8
 idna==2.10
 ipdb==0.13.3
-ipython==7.16.1
+ipython==7.16.3
 ipython-genutils==0.2.0
 jedi==0.17.2
 oauthlib==3.1.0
